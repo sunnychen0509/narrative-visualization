@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A three-scene D3 narrative visualization about 2017 vehicle fuel economy and engine cylinders.">
+  <title>More Cylinders, Fewer Miles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <p class="eyebrow">Martini-glass narrative · 2017 vehicle fuel economy</p>
+      <h1>More Cylinders, Fewer Miles</h1>
+      <p class="subtitle">A three-scene story about the trade-off between engine size and fuel economy.</p>
+    </header>
+
+    <section class="progress" aria-label="Story progress">
+      <div class="progress-step active" data-step="0"><span>1</span><strong>The fleet</strong></div>
+      <div class="progress-line"></div>
+      <div class="progress-step" data-step="1"><span>2</span><strong>The trade-off</strong></div>
+      <div class="progress-line"></div>
+      <div class="progress-step" data-step="2"><span>3</span><strong>Your turn</strong></div>
+    </section>
+
+    <section class="visualization-layout">
+      <div class="chart-card">
+        <div id="chart-status" class="chart-status" aria-live="polite">Loading data…</div>
+        <svg id="chart" role="img" aria-labelledby="scene-title scene-description"></svg>
+        <div id="tooltip" class="tooltip" role="status" aria-hidden="true"></div>
+      </div>
+
+      <aside class="story-card">
+        <p id="scene-number" class="scene-number">Scene 1 of 3</p>
+        <h2 id="scene-title">The fleet splits into two worlds</h2>
+        <p id="scene-description" class="scene-description"></p>
+        <div id="takeaway" class="takeaway"></div>
+
+        <div id="explore-controls" class="explore-controls" hidden>
+          <h3>Explore the data</h3>
+          <label for="fuel-filter">Fuel type</label>
+          <select id="fuel-filter">
+            <option value="All">All fuel types</option>
+            <option value="Gasoline">Gasoline</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electricity">Electricity</option>
+          </select>
+
+          <label for="cylinder-filter">Engine cylinders</label>
+          <select id="cylinder-filter">
+            <option value="All">All cylinder counts</option>
+          </select>
+
+          <button id="reset-filters" class="secondary-button" type="button">Reset filters</button>
+          <p class="interaction-hint">Hover over any circle for the manufacturer and exact values.</p>
+        </div>
+      </aside>
+    </section>
+
+    <nav class="story-navigation" aria-label="Story navigation">
+      <button id="previous-button" type="button" class="secondary-button" disabled>← Previous</button>
+      <p id="navigation-hint">Use the Next button to move through the author-guided story.</p>
+      <button id="next-button" type="button" class="primary-button">Next scene →</button>
+    </nav>
+
+    <footer>
+      <p><strong>Data:</strong> 2017 automobile manufacturer averages from <a href="https://flunky.github.io/cars2017.csv">cars2017.csv</a>. Electric entries are measured in MPGe. Built entirely with D3.</p>
+    </footer>
+  </main>
+
+  <script src="d3.v3.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

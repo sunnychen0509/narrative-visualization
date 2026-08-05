@@ -181,15 +181,16 @@
       .style("fill", function (d) { return colors[d.fuel]; });
 
     drawAnnotation(frame.group, {
-      targetX: x(120), targetY: y(108), boxX: frame.width - 360, boxY: 75, width: 280,
-      title: "Electric vehicles form a separate cluster",
-      body: ["Their MPGe values are far above", "the gasoline and diesel group."]
-    });
-
-    drawAnnotation(frame.group, {
-      targetX: x(24), targetY: y(31), boxX: 72, boxY: frame.height - 118, width: 245,
+      targetX: x(24),
+      targetY: y(31),
+      boxX: frame.width - 350,
+      boxY: frame.height - 190,
+      width: 330,
       title: "City and highway ratings move together",
-      body: ["Most vehicles with stronger city", "efficiency also rank higher on highways."]
+      body: [
+        "Most vehicles with stronger city",
+        "efficiency also rank higher on highways."
+      ]
     });
   }
 
